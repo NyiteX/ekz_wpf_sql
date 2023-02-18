@@ -160,5 +160,20 @@ namespace ekz_wpf_sql
             if (e.ChangedButton == MouseButton.Left)
                 DragMove();
         }
+
+        private void sell_book_list_Click(object sender, RoutedEventArgs e)
+        {
+            string command = "SELECT Name,FIO,Izdatel,Ganre,Date,CountSTR,Price,Book.ID " +
+                "FROM Book,SellBooks WHERE SellBooks.BookID = Book.ID " +
+                "GROUP BY Book.ID " +
+                "HAVING COUNT(SellBooks.BookID) = (SELECT MAX(SellBooks.BookID)FROM SellBooks,Book WHERE Book.ID = SellBooks.BookID)";
+            Load_inf(command);
+        }
+
+        private void btn_load_sell_books(object sender, RoutedEventArgs e)
+        {
+            Load_inf("SELECT Name, FIO, Izdatel, Ganre, Date, CountSTR, Price, Book.ID FROM Book,SellBooks WHERE SellBooks.BookID = Book.ID");
+            
+        }
     }
 }
