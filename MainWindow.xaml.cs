@@ -64,18 +64,18 @@ namespace ekz_wpf_sql
                     command.CommandText = "CREATE TABLE BooksClient" +
                 "(ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, " +
                 "ClientID INTEGER REFERENCES Client(ID), " +
-                "BookID INTEGER REFERENCES Book(ID) UNIQUE)";
+                "BookID INTEGER REFERENCES Book(ID) ON DELETE CASCADE UNIQUE)";
                     command.ExecuteNonQuery();
 
                     command.CommandText = "CREATE TABLE SeriesBooks" +
-                                    "(ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, " +
-                                    "Name TEXT NOT NULL, " +
-                                    "BookID INTEGER REFERENCES Book(ID) UNIQUE)";
+                 "(ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, " +
+                 "Name TEXT NOT NULL, " +
+                 "BookID INTEGER REFERENCES Book(ID) ON DELETE CASCADE UNIQUE)";
                     command.ExecuteNonQuery();
 
                     command.CommandText = "CREATE TABLE SellBooks" +
                 "(ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, " +
-                "BookID INTEGER REFERENCES Book(ID))";
+                "BookID INTEGER REFERENCES Book(ID) ON DELETE CASCADE)";
                     command.ExecuteNonQuery();
                 }
         }

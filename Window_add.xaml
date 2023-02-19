@@ -72,7 +72,7 @@
                 <GradientStop Color="#FF0B618E" Offset="0.895"/>
             </RadialGradientBrush>
         </Grid.Background>
-        <Button Style="{DynamicResource ButtonStyle1}" Content="Добавить книгу" Margin="0,357,0,0" Click="Button_Click" FontSize="20" Foreground="WhiteSmoke" >
+        <Button x:Name="btn_add" Style="{DynamicResource ButtonStyle1}" Content="Добавить книгу" Margin="0,357,0,0" Click="Button_Click" FontSize="20" Foreground="WhiteSmoke" >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="1"/>

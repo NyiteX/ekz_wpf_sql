@@ -90,7 +90,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="0,0,3,-8" SnapsToDevicePixels="true">
+                        <Border x:Name="border" CornerRadius="215" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="0,0,3,-8" SnapsToDevicePixels="true">
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -141,9 +141,14 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical" Background="#33A9A9A9" >
-                        <Label Content="{Binding Name}" Height = "120" Width = "105" HorizontalContentAlignment="Center"/>
+                        <Label Content="Название книги" FontSize="15"/>
+                        <Label Content="{Binding Name}" FontSize="25" Height = "60" Width = "105" HorizontalContentAlignment="Center"/>
+                        <Label Content="Цена" FontSize="15"/>
                         <Label Content="{Binding Price}" FontSize="25"/>
+                        <Label Content="Жанр" FontSize="15"/>
                         <Label Content="{Binding Ganre}" FontSize="25"/>
+                        <Label Content="Автор" FontSize="15"/>
+                        <Label Content="{Binding FIO}" FontSize="25"/>
                         <Label Content="{Binding Date}" FontSize="25"/>
                         <Label Content="{Binding CountSTR}" FontSize="25"/>
                     </StackPanel>
@@ -159,7 +164,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="delete_Book" Style="{DynamicResource ButtonStyle1}" Content="Delete Book" HorizontalAlignment="Left" Margin="212,35,0,0" VerticalAlignment="Top" Height="70" Width="80" BorderBrush="{x:Null}" Click="delete_Book_Click">
+        <Button x:Name="delete_Book" Style="{DynamicResource ButtonStyle1}" Content="Delete Book" HorizontalAlignment="Left" Margin="173,1,0,0" VerticalAlignment="Top" Height="70" Width="80" BorderBrush="{x:Null}" Click="delete_Book_Click">
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="Black" Offset="1"/>
@@ -233,6 +238,15 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
+        </Button>
+        <Button x:Name="edit_book_btn" Style="{DynamicResource ButtonStyle1}" Content="Edit Book" HorizontalAlignment="Left" Margin="258,68,0,0" VerticalAlignment="Top" Height="59" Width="67" BorderBrush="{x:Null}" Click="edit_book_btn_Click">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FFCBFF82" Offset="0"/>
+                    <GradientStop Color="#FF6EA227" Offset="0.639"/>
+                </RadialGradientBrush>
+            </Button.Background>
         </Button>
     </Grid>
 </Window>

@@ -122,6 +122,13 @@
             <ColumnDefinition Width="25*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Border BorderThickness="3" Grid.Column="1" Grid.Row="1">
+            <Border.BorderBrush>
+                <RadialGradientBrush RadiusX="1" RadiusY="1" Center="0.5,0.8">
+                    <GradientStop Color="#FF8800FF"/>
+                    <GradientStop Color="#FFD8AEFD" Offset="1"/>
+                    <GradientStop Color="#FF454FF1" Offset="0.432"/>
+                </RadialGradientBrush>
+            </Border.BorderBrush>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="74*"></RowDefinition>
@@ -142,14 +149,21 @@
                 <TextBox Style="{DynamicResource TextBoxStyle1}" x:Name="Name_TB" HorizontalAlignment="Left" Margin="67,15,0,0" Grid.Row="1" Grid.ColumnSpan="4" Text="FirstName" VerticalAlignment="Top" Width="234" Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF3F3F3" Height="33" FontSize="18" GotFocus="Name_TB_GotFocus" LostFocus="Name_TB_LostFocus"/>
                 <TextBox x:Name="Login_TB" HorizontalAlignment="Left" Margin="67,15,0,0" Grid.Row="2" Grid.ColumnSpan="4"  Text="Login" VerticalAlignment="Top" Width="234" Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF3F3F3" Height="33" Style="{DynamicResource TextBoxStyle1}" FontSize="18" GotFocus="Login_TB_GotFocus" LostFocus="Login_TB_LostFocus"/>
                 <TextBox x:Name="Pass_TB" HorizontalAlignment="Left" Margin="67,15,0,0" Grid.Row="3" Grid.ColumnSpan="4" Text="Password" VerticalAlignment="Top" Width="234" Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF1F1F1" Height="33" Style="{DynamicResource TextBoxStyle1}" FontSize="18" GotFocus="Pass_TB_GotFocus" LostFocus="Pass_TB_LostFocus"/>
-                
 
-                <CheckBox x:Name="login_maybe" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="103,25,0,0" Grid.Row="4" Grid.ColumnSpan="3" Content="Already have account?" VerticalAlignment="Top" Width="146" Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFD08F00" Height="33"  FontSize="12" Unchecked="login_maybe_Unchecked" Checked="login_maybe_Checked"/>
+
+                <CheckBox x:Name="login_maybe" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="67,25,0,0" Grid.Row="4" Grid.ColumnSpan="3" Content="Already have account?" VerticalAlignment="Top" Width="212" Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFD08F00" Height="33"  FontSize="16" Unchecked="login_maybe_Unchecked" Checked="login_maybe_Checked" Padding="-20,-1,0,0"/>
                 <Line x:Name="line_name" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" X1="60" X2="1000" Y1="50" Y2="50" StrokeThickness="3" Stroke="#7FFFFFFF" Margin="0,74,0,0" Grid.RowSpan="2" />
                 <Line Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" X1="60" X2="1000" Y1="50" Y2="50" StrokeThickness="3" Stroke="#7FFFFFFF" Margin="0,74,0,0" Grid.RowSpan="2" />
                 <Line Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" X1="60" X2="1000" Y1="50" Y2="50" StrokeThickness="3" Stroke="#7FFFFFFF" Margin="0,74,0,0" Grid.RowSpan="2" />
 
-                <Button x:Name="btn_x" Grid.Row="0" Grid.Column="3" Content="r" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" FontFamily="Webdings" Width="22" FontSize="20" Click="btn_x_Click" Margin="18,0,0,0" Padding="0,0,0,0" Background="#FF9B73FE"/>
+                <Button x:Name="btn_x" Grid.Row="0" Grid.Column="3" Content="r" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" FontFamily="Webdings" Width="22" FontSize="20" Click="btn_x_Click" Margin="18,0,0,0" Padding="0,0,0,0">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF7880FF"/>
+                            <GradientStop Color="#FFB541FB" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </Grid>
         </Border>
 

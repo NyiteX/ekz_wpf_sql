@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -174,6 +175,29 @@ namespace ekz_wpf_sql
         {
             Load_inf("SELECT Name, FIO, Izdatel, Ganre, Date, CountSTR, Price, Book.ID FROM Book,SellBooks WHERE SellBooks.BookID = Book.ID");
             
+        }
+
+        private void edit_book_btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (listbox_books.SelectedIndex != -1)
+            {
+                Window_add form2 = new Window_add(1); //1 for edit func activate
+                form2.tb_name.Text = items[listbox_books.SelectedIndex].Name;
+                form2.tb_fio.Text = items[listbox_books.SelectedIndex].FIO;
+                form2.tb_ganre.Text = items[listbox_books.SelectedIndex].Ganre;
+                form2.tb_izdatel.Text = items[listbox_books.SelectedIndex].Izdatel;
+                form2.tb_countSTR.Text = items[listbox_books.SelectedIndex].CountSTR.ToString();
+                form2.tb_price.Text = items[listbox_books.SelectedIndex].Price.ToString();
+                try
+                {
+                    form2.dp_date.SelectedDate = DateTime.ParseExact(items[listbox_books.SelectedIndex].Date, "dd.MM.yyyy", CultureInfo.InvariantCulture);
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+                form2.Title = items[listbox_books.SelectedIndex].Name;
+
+                form2.ShowDialog();
+                Load_inf("SELECT Name,FIO,Izdatel,Ganre,Date,CountSTR,Price,ID FROM Book");
+            }
         }
     }
 }
