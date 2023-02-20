@@ -5,7 +5,9 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -165,9 +167,11 @@ namespace ekz_wpf_sql
         private void sell_book_list_Click(object sender, RoutedEventArgs e)
         {
             string command = "SELECT Name,FIO,Izdatel,Ganre,Date,CountSTR,Price,Book.ID " +
-                "FROM Book,SellBooks WHERE SellBooks.BookID = Book.ID " +
+                "FROM Book, SellBooks WHERE SellBooks.BookID = Book.ID " +
                 "GROUP BY Book.ID " +
-                "HAVING COUNT(SellBooks.BookID) = (SELECT MAX(SellBooks.BookID)FROM SellBooks,Book WHERE Book.ID = SellBooks.BookID)";
+                "HAVING COUNT(Book.ID) = (SELECT COUNT(*) as count_ " +
+                "FROM SellBooks " +
+                "GROUP BY BookID)";
             Load_inf(command);
         }
 
